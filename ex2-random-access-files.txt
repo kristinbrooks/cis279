@@ -1,0 +1,28 @@
+Kristin Brooks
+10/12/26
+EX2 - Random Access Files
+
+You have an object of the RandomAccessFile class named empRaf. It refers to a physical file that contains a company's employee records. Each employee record has:
+
+an int field named empID which points to its location in the file
+
+    a 20-character last_name
+    a 15-character first_name
+    a hire date stored as an int
+    a 3-character job code
+
+The empID values begin at 1, but the first record in the file begins at byte 0.
+
+1. Calculate the length of this record.
+empID:      4 bytes
+last_name:  20 * 2 bytes
+first_name: 15 * 2
+hire date:  4 bytes
+job code:   3 * 2 bytes
+-------------------------
+            84 bytes
+
+2. Write a statement that positions the file pointer at the beginning of the record that has empID 20.
+
+final long RECORD_SIZE = 84;
+empRaf.seek((20 - 1) * RECORD_SIZE);
